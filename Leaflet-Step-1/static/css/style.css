@@ -10,3 +10,39 @@ body,
 html {
   height: 100%;
 }
+
+.legend {
+  line-height: 18px;
+  background-color: white;
+}
+
+.legend .min {
+/*  padding: 6px 8px; */
+  float: left;
+  padding-bottom: 5px;
+}
+
+.legend .max {
+  float: right;
+  padding-bottom: 5px;
+
+}
+
+.legend ul {
+  clear: both;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend li {
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  text-align: center;
+ }
+
+h2 {
+  text-align: center;
+}
+

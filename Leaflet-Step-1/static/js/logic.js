@@ -19,16 +19,16 @@ function createFeatures(earthquakeData) {
   {
         var color = "";
         if (mag > 4) {
-        color = "red";
+          color = "red";
         }
         else if (mag > 3) {
-        color = "orange";
+          color = "orange";
         }
         else if (mag > 2) {
-        color = "yellow";
+          color = "yellow";
         }
         else {
-        color = "#98ee00";
+          color = "#98ee00";
         }
         return color;
   }
@@ -122,11 +122,8 @@ function createMap(earthquakes) {
     position: "bottomright"
   });
 
-
   legend.onAdd = function() {
-    var div = L
-      .DomUtil
-      .create("div", "Earthquake Legend");
+    var div = L.DomUtil.create("div", "info legend");
 
     var magnitude = [1, 2, 3, 4];
     var colors = [
@@ -138,22 +135,21 @@ function createMap(earthquakes) {
 
     labels = [];
 
-    var legendInfo = "<h3>Earthquake Info</h3>" +
-    "<div class=\"labels\">" +
-        // "<div class=\"min\">" + magnitude[0] + "</div>" +
-        // "<div class=\"max\">" + magnitude[magnitude.length - 1] + "</div>" +
-    "</div>";
+    var legendInfo = "<h2>Magnitude Info</h2>" +
+      "<div class=\"labels\">" +
+        "<div class=\"max\">max=" + (magnitude[3]) + "+</div>" +
+        "<div class=\"min\">min=" + magnitude[0] + "</div>" +
+       "</div>";
 
     div.innerHTML = legendInfo;
 
-    // limits.forEach(function(limit, index) {
-    for (var i = 0; i < magnitude.length; i++) {
-    labels.push(magnitude[i] + "<li style=\"background-color: " + colors[i] + "\"></li>" );
-    };
+    magnitude.forEach(function(mag, index) {
+      labels.push("<li style=\"background-color: " + colors[index] + "\">" + "&nbsp;" + mag + "</li>" );
+    });
 
     div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-
     return div;
+  
     };
 
     // Adding legend to the map
